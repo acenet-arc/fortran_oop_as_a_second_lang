@@ -4,6 +4,7 @@ teaching: 10
 exercises: 5
 questions:
 - "What is a type bound procedure?"
+- "Can an extended type be passed to a type bound procedure?"
 objectives:
 - "How do you create a type bound procedure."
 keypoints:
@@ -32,7 +33,7 @@ end program
 {: .fortran}
 However, in object oriented languages it is common to think of procedures as part of the object or type and have the procedure be called from the object. So instead of calling a procedure and explicitly passing in the object like `call display(vec)` as above the different syntax using the `%` operator `call vec%display()` is more in line with the object oriented way of thinking.
 
-The `%` style of calling a subroutine works exactly the same as the usual way except that the first argument in the subroutine is automatically replaced by the object to the left of the `%` operator. This type of procedure is called a **type bound procedure**. In other languages this might be called a **member function** as it is a member of the type like the component variables are members.
+The `%` style of calling a subroutine works exactly the same as the usual way, except that the first argument in the subroutine is automatically replaced by the object to the left of the `%` operator. This type of procedure is called a **type bound procedure**. In other languages this might be called a **member function** as it is a member of the type, like the component variables are members.
 
 To create a type bound procedure you must specify that the type *contains* that procedure. Lets add the `display` type bound procedure now.
 
@@ -192,10 +193,10 @@ module m_vector
 <div class="codehighlight">    select type (vec)
       class is (t_vector)
         print*, "t_vector:"
+        print*, " num_elements=",vec%num_elements
       class is (t_vector_3)
         print*, "t_vector_3:"
     end select</div>
-    print*, " num_elements=",vec%num_elements
     print*, " elements="
     do i=1,vec%num_elements
       print*, "  ",vec%elements(i)
@@ -262,7 +263,6 @@ $ ./type_bound_procedures_select_type
      0.00000000    
      0.00000000    
  t_vector_3:
-   num_elements=           3
    elements=
      1.00000000    
      0.00000000    

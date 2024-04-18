@@ -86,7 +86,7 @@ $ ./modules
 It is possible to control how variables and procedures declared in a module are accessed from outside the module. This can be done either on module wide basis or for specific procedures and variables. If you specify no access modifiers everything will be accessible from outside the module.
 
 There are two access modifiers:
-* `private` indicates that that procedure or variable can only be accessed within the module
+* `private` indicates that the procedure or variable can only be accessed within the module
 * `public` indicates it can be accessed from outside the module.
 
 Below is an example of using the `private` access modifier module wide.

@@ -12,7 +12,7 @@
 # an: ACENET
 # cc: Compute Canada
 # alliance: Digital Research Alliance of Canada
-# molmodsim: Compute Canada Molecular Simulation Team 
+# molmodsim: Compute Canada Molecular Simulation Team
 # bst: (compatibility) same as `molmodsim`
 carpentry: "an"
 
@@ -119,8 +119,9 @@ episode_order:
   - derived_types
   - extending_types
   - interfaces
+  - break
   - type_bound_procedures
   - destructors
   - operators
   - wrapping_up
-  
+

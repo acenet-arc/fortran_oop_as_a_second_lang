@@ -122,15 +122,15 @@ end module
 program main
   use m_vector
   implicit none
-  type(t_vector) numbers_none,numbers_some
+  type(t_vector) <div class="codehighlight">numbers_none,numbers_some</div>
   
-  numbers_none=<div class="codehighlight">create_empty_vector()</div>
-  print*, "numbers_none%num_elements=",numbers_none%num_elements
+<div class="codehighlight">  numbers_none=create_empty_vector()
+  print*, "numbers_none%num_elements=",numbers_none%num_elements</div>
   
-  numbers_some=<div class="codehighlight">create_sized_vector(4)</div>
+<div class="codehighlight">  numbers_some=create_sized_vector(4)
   numbers_some%elements(1)=2
   print*, "numbers_some%num_elements=",numbers_some%num_elements
-  print*, "numbers_some%elements(1)=",numbers_some%elements(1)
+  print*, "numbers_some%elements(1)=",numbers_some%elements(1)</div>
   
 end program
 </pre></div></div>
@@ -159,7 +159,7 @@ Now we can use these functions to initialize and allocate memory for our vectors
 > It is a good idea to match allocations to deallocations. We will add this functionality later in the [Destructors episode](../destructors) once we learn a bit more about derived types.
 {: .callout}
 
-> ## Access modifiers on derived type modifiers
+> ## Access modifiers and derived types
 > Access modifiers can be applied to derived types in a similar way to modules. Here is an example.
 > 
 > ~~~
@@ -174,7 +174,7 @@ Now we can use these functions to initialize and allocate memory for our vectors
 > end module
 > ~~~
 > {: .fortran}
-> In this case the member variable `num_elements` could no longer be accessed from outside the module, > > while the `elements` member variable can be.
+> In this case the member variable `num_elements` could no longer be accessed from outside the module, while the `elements` member variable can be.
 {: .callout}
 
 > ## What is a derived type?

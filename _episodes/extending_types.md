@@ -4,10 +4,12 @@ teaching: 10
 exercises: 0
 questions:
 - "How do you extend a type?"
+- "Why can it be useful to extend a type?"
 objectives:
-- "Create an extend a type."
+- "Create an extended a type."
 keypoints:
-- "Type extension allows you to build upon an existing derived type to create a new derived type."
+- "Type extension allows you to build upon an existing derived type to create a new derived type while adding new functionality or modifying existing functionality."
+- "Allows reuse of common code between derived types."
 ---
 
 It is pretty common to use vectors to represent positions in 3D space. Lets create a new derived type which always has only three components. However, it would be really nice if we could reuse our more general vector type to represent one of these specific 3 component vectors. You can do this by using type extension. Type extension allows you to add new members (or not) to an existing type to create a new derived type.
@@ -67,7 +69,7 @@ program main
   use m_vector
   implicit none
   type(t_vector) numbers_none,numbers_some
-  type(t_vector_3) location
+<div class="codehighlight">  type(t_vector_3) location</div>
   
   numbers_none=create_empty_vector()
   print*, "numbers_none%num_elements=",numbers_none%num_elements
