@@ -23,9 +23,9 @@ end type
 {: .fortran}
 Here `<parent type name>` is the name of a derived type to be extended, and `<child type name>` is the name of the new derived type created by extending the parent derived type.
 
-Our new 3 component vector however, doesn't need any new member variables so we don't need to add any new ones. However, by having a distinct derived data type for our 3 component vector will allow us to use specific procedures that work with it as apposed to the those for the more general vector, as we shall see shortly.
+Our new 3 component vector however, doesn't need any new member variables. However, by having a distinct derived data type for our 3 component vector it will allow us to use specific procedures that work with it as apposed to the those for the more general vector and at the same time reuse common functionality between the two vector types.
 
-Lets create a new `t_vector_3` derived type and a `create_size_3_vector` to create new ones.
+Lets create a new `t_vector_3` derived type and a `create_size_3_vector` function to create new objects.
 
 ~~~
 $ cp derived_types_init.f90 type_extension.f90
