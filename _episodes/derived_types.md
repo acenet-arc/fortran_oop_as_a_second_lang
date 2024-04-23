@@ -14,7 +14,7 @@ keypoints:
 - "Access modifiers can be applied within derived types as well as within modules to restrict access to members of that derived type."
 ---
 
-While modules allow you to package variables together in such a way that you can directly refer to those variables, derived types allow you to package together variables in such a way as to form a new compound variable. With this new compound variable you can refer to it as a group rather than only by the individual components.
+While modules allow you to package variables together in such a way that you can directly refer to those variables, derived types allow you to package together variables in such a way as to form a new compound variable. With this new compound variable you can refer to it as a group rather than only by the individual components. This can greatly simplify passing a group of related variables to a procedure as only one variable of a given derived type would need to be passed.
 
 To create a new derived type you use the following format.
 ~~~
@@ -29,7 +29,7 @@ You can then declare new variables of this derived type as shown.
 type(<type name>):: my_variable
 ~~~
 {: .fortran}
-Finally individual elements or members of a derived type variable, or **object**, can be accessed using the `%` operator.
+Individual elements or members of a derived type variable, or **object**, can be accessed using the `%` operator.
 ~~~
 my_variable%member1
 ~~~
@@ -79,6 +79,8 @@ $ ./derived_types
  numbers%elements(1)=   2.00000000
 ~~~
 {: .output}
+
+In the rest of this workshop we will build on this `t_vector` derived type adding functionality as we go. We will create a set of procedures and operators which will allow us to do common operations one might want to perform on a vector abstracting away the details, such as memory management, allowing us to write code at a higher level.
 
 ### Creating new objects
 Creating new vectors is a pretty common thing that we want to do. Lets add some functions to create vectors to reduce the amount of repeated code. Lets create one to make empty vectors, `create_empty_vector` and one to create a vector of a given size allocating the required memory to hold all the elements of the vector, `create_sized_vector`.

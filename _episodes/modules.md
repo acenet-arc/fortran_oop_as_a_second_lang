@@ -4,6 +4,7 @@ teaching: 10
 exercises: 10
 questions:
 - "What are modules?"
+- "Why would I want to use a module?"
 - "Can I control what can be accessed from outside a module?"
 objectives:
 - "Create a module."
@@ -12,7 +13,7 @@ keypoints:
 - "Access to variables and procedures within the module can be controlled with the private and public access modifiers."
 ---
 
-Modules allow procedures (functions and subroutines) and variables to be grouped together as well as some other constructs we will talk about later.
+Modules allow procedures (functions and subroutines) and variables to be grouped together as well as some other constructs we will talk about later. 
 
 A module is declared as shown below.
 
@@ -68,6 +69,8 @@ end program
 </div>
 In the program `main`, to be able to accesses the variables and procedures defined in the module you must indicate you wish to be able to access them with the `use` keyword followed by the module name you would like your program or procedure to have access to.
 
+By grouping related procedures and variables together into a module it can help to improve re-usability and allow modules to be **used** in multiple places in code.
+
 Lets download, compile and run the above `modules.f90` program.
 ~~~
 $ wget https://raw.githubusercontent.com/acenet-arc/fortran_oop_as_a_second_language/gh-pages/code/modules.f90
@@ -83,7 +86,9 @@ $ ./modules
 {: .output}
 
 ### Access Modifiers
-It is possible to control how variables and procedures declared in a module are accessed from outside the module. This can be done either on module wide basis or for specific procedures and variables. If you specify no access modifiers everything will be accessible from outside the module.
+It is possible to control how variables and procedures declared in a module are accessed from outside the module. This can be done either on module wide basis or for specific procedures and variables. If you specify no access modifiers everything will be accessible from outside the module. Access modifiers allows one to apply the OOP principle of **encapsulation** by restricting access to procedures and variables and keeping them internal.
+
+It is often common in OOP style to have getter and setter procedures to access internal state. Some care should be taken to not get too carried away with this idea as it can lead to writing lots unnecessary code to access private members when they could have just been made public in the first place. Extra code would then require extra work when changes need to be made. However, there are also situations where it can be helpful to make members private that could be problematic if accessed from outside. Care always needs to be taken when applying OOP principles to ensure that they make sense rather than blindly applying those ideas in all situations.
 
 There are two access modifiers:
 * `private` indicates that the procedure or variable can only be accessed within the module

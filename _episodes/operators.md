@@ -129,7 +129,7 @@ end program
 [operators.f90](https://github.com/acenet-arc/fortran_oop_as_a_second_language/blob/gh-pages/code/operators.f90)
 </div>
 
-In the main program you can see how the operator is used, exactly as if we were adding two numbers together. Lets try it out.
+In the main program you can see how the operator is used, exactly as if we were adding two numbers together, however in this case we are adding our two vectors together. Lets try it out.
 
 ~~~
 $ gfortran operators.f90 -o operators

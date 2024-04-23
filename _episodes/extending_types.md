@@ -1,7 +1,7 @@
 ---
 title: "Extended Types"
 teaching: 10
-exercises: 0
+exercises: 5
 questions:
 - "How do you extend a type?"
 - "Why can it be useful to extend a type?"
@@ -14,7 +14,7 @@ keypoints:
 
 It is pretty common to use vectors to represent positions in 3D space. Lets create a new derived type which always has only three components. However, it would be really nice if we could reuse our more general vector type to represent one of these specific 3 component vectors. You can do this by using type extension. Type extension allows you to add new members (or not) to an existing type to create a new derived type.
 
-To create a new extended derived type has the following format.
+To create a new extended derived type use the following format.
 ~~~
 type,extends(<parent type name>):: <child type name>
   <member variable declarations>
@@ -105,5 +105,43 @@ $ ./type_extension
  location%elements(1)=   1.00000000    
 ~~~
 {: .output}
+
+> ## Which type is being extended?
+> In the following code snippet which type is being extended?
+> ~~~
+> ...
+> type, extends(B):: A
+> end type
+> ...
+> type(C) function D()
+>   implicit none
+>   D%thing=1.0
+>  end function
+> ...
+> ~~~
+> {: .fortran}
+> <ol type="a">
+> <li markdown="1">`A`
+> </li>
+> <li markdown="1">`B`
+> </li>
+> <li markdown="1">`C`
+> </li>
+> <li markdown="1">`D`
+> </li>
+> </ol>
+> > ## Solution
+> > <ol type="a">
+> > <li markdown="1">**No**: close, but `A` is the new derived type which extends the existing `B` derived type.
+> > </li>
+> > <li markdown="1">**Yes**: the existing derived type `B` is being extended to create a new derived type `A`.
+> > </li>
+> > <li markdown="1">**No**: `C` is a derived type, but from this code snippet it is impossible to tell if it has been extended to a new derived type somewhere else in the code.
+> > </li>
+> > <li markdown="1">**No**: `D` is actually a function name, not a derived type at all.
+> > </li>
+> > </ol>
+> {: .solution}
+{: .challenge}
 
 {% include links.md %}
